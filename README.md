@@ -1,78 +1,84 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# 短视频去水印小帮手-服务端
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+短视频去水印系列教程服务端源码。php版
 
-## About Laravel
+> 这里不过多介绍，我假设您有基本的编码基础，并熟悉php语言及laravel框架。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 安装
+请先确保 [composer](https://docs.phpcomposer.com/00-intro.html) 已安装。（如使用laravels，还需确认[swoole](https://wiki.swoole.com/wiki/page/6.html)扩展已安装）
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+>如未安装可根据链接中的官方文档进行安装
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. 克隆代码
+    ```
+    git clone https://github.com/wyq2214368/laravel-jieba.git
+    ```
 
-## Learning Laravel
+2. composer安装依赖
+    ```
+    composer install
+    ```
+    
+   >以下的步骤是laravel及laravels的相关配置，您可以选择使用 `php artisan install` 指令一键完成。或根据相应文档完成设置
+3. 创建.env文件
+    ```
+    cp .env.example .env
+    ```
+    
+4. 生成laravel的key
+    ```
+    php artisan key:generate
+    ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+5. 文件夹权限设置
+    ```
+    chmod -R 777 storage/
+    chmod -R 777 bootstrap/cache/
+    ```
+    >可视情况合理分配需要的权限
+    
+    或分配php-fpm进程用户为所有者
+    ```bash
+    choown -R apache:apache ./
+    ```
+6. 生成数据表
+    请先到config/database.php文件修改数据库信息，之后执行
+    ```
+    php artisan migrate
+    ```
+    自动生成数据表    
+7. 启动服务
+    ```
+    php artisan serve
+    ```
+    > 如果您不想启动laravel server而是使用laravel是服务，可以通过 `php artisan install` 指令启动laravels服务，或通过[laravels文档](https://github.com/hhxsv5/laravel-s/blob/master/README-CN.md#%E7%89%B9%E6%80%A7)自行启动
+    
+8. 访问并测试服务
+   
+   服务启动后可将小程序app.js中的globalData.apiDomain设置为： http://127.0.0.1:8000/api
+    > 如您启动的laravels服务，则需要使用laravels配置的端口(默认是 5200)
+    
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+可扫码预览：
 
-## Laravel Sponsors
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201221145928601.jpg)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 系列文章
+- [手把手教你做短视频去水印微信小程序（0-概述）](https://editor.csdn.net/md/?articleId=111474557)
+- [手把手教你做短视频去水印微信小程序（1-封装网络请求&登陆逻辑）](https://blog.csdn.net/qq_37788558/article/details/111500382)
+- [手把手教你做短视频去水印微信小程序（2-首页）](https://blog.csdn.net/qq_37788558/article/details/111500382)
+- [手把手教你做短视频去水印微信小程序（3-个人中心）](https://blog.csdn.net/qq_37788558/article/details/111478258)
+- [手把手教你做短视频去水印微信小程序（4-转换结果页）](https://blog.csdn.net/qq_37788558/article/details/111588413)
+- [手把手教你做短视频去水印微信小程序（5-服务端代码）](https://blog.csdn.net/qq_37788558/article/details/112204720)
+- [手把手教你做短视频去水印微信小程序（6-广告代码）](https://blog.csdn.net/qq_37788558/article/details/112559472)
+# github源码地址
+欢迎star～
+- [短视频去水印小程序源码-小程序端](https://github.com/wyq2214368/remove-water-mark-mp)
+- [短视频去水印小程序源码-服务端（php）](https://github.com/wyq2214368/remove-water-mark-server)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[MIT](https://github.com/wyq2214368/laravel-jieba/blob/master/LICENSE)

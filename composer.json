@@ -9,9 +9,15 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ext-json": "*",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.5",
+        "hhxsv5/laravel-s": "^3.6",
+        "jaeger/querylist": "^4.1",
         "laravel/framework": "^6.2",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "overtrue/laravel-wechat": "~5.0",
+        "smalls/video-tools": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
@@ -37,6 +43,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/functions.php"
         ]
     },
     "autoload-dev": {
