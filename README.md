@@ -25,6 +25,13 @@
     cp .env.example .env
     ```
     
+    编辑.env文件，设置你自己的微信小程序appi和secret
+    
+    ```
+    WECHAT_MINI_PROGRAM_APPID=这里填你自己的appid
+    WECHAT_MINI_PROGRAM_SECRET=这里填你自己的secret
+    ```
+    
 4. 生成laravel的key
     ```
     php artisan key:generate
@@ -58,6 +65,7 @@
    服务启动后可将小程序app.js中的globalData.apiDomain设置为： http://127.0.0.1:8000/api
     > 如您启动的laravels服务，则需要使用laravels配置的端口(默认是 5200)
     
+以上，可以直接打开小程序访问了。
 
 可扫码预览：
 
