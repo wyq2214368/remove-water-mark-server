@@ -11,7 +11,7 @@
 
 1. 克隆代码
     ```
-    git clone https://github.com/wyq2214368/laravel-jieba.git
+    git clone https://github.com/wyq2214368/remove-water-mark-server.git
     ```
 
 2. composer安装依赖
