@@ -52,7 +52,7 @@ class LoginController extends Controller
             'name' => $this->filterEmoji($decryptedData['nickName']),
             'avatar' => $decryptedData['avatarUrl'],
             'gender' => $decryptedData['gender'],
-            'unionid' => $decryptedData['unionId'],
+//            'unionid' => $decryptedData['unionId'], // unionid需要在微信开放平台绑定后才能返回，默认不处理了，有需要可参考：https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html
             'country' => $decryptedData['country'],
             'province' => $decryptedData['province'],
             'city' => $decryptedData['city'],
