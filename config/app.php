@@ -41,7 +41,7 @@ return [
 
     'debug' => env('APP_DEBUG', false),
 
-    'preview' => env('MP_VIDEO_PREVIEW', 0),
+    'preview' => env('MP_VIDEO_PREVIEW', 1),
 
     'notice_webhook' => env('NOTICE_WEBHOOK'),
 

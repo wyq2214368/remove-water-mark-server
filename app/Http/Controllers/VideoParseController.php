@@ -43,6 +43,7 @@ class VideoParseController extends Controller
                 //快手
                 case 'kuaishou.com':
                 case 'chenzhongtech.com':
+                case 'kuaishouapp.com':
                     $data = VideoManager::KuaiShou()->start($url);
                     break;
                 //最右
